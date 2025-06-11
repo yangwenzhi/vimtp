@@ -1,0 +1,831 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HASoftware - MTProxy Telegram</title>
+    <meta name="description" content="HASoftware - Chia sẻ Máy chủ MTProxy Telegram miễn phí">
+    
+    <!-- Favicon -->
+    <!-- <link rel="icon" type="image/png" href="/images/favicon.png"> -->
+    
+    <!-- Fonts -->
+    <link href="./css/css2.css" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link href="./css/all.min.css" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="./css/style.css">
+    
+    <!-- Custom styles for specific pages -->
+    
+    
+        <style>
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    padding: 80px 0;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="1" fill="rgba(255,255,255,0.05)"/></svg>');
+    opacity: 0.5;
+}
+
+.hero__content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero__title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(45deg, #fff, #a8a8a8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.hero__description {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: rgba(255,255,255,0.9);
+}
+
+.hero__stats {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 1rem;
+    background: rgba(255,255,255,0.1);
+    border-radius: 12px;
+    min-width: 150px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: transform 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+}
+
+.stat-item i {
+    font-size: 2rem;
+    color: #0088cc;
+    margin-bottom: 0.5rem;
+}
+
+.stat-item span {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.stat-label {
+    font-size: 0.9rem !important;
+    color: rgba(255,255,255,0.7) !important;
+    margin-top: 0.25rem;
+}
+
+.telegram-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #0088cc;
+    color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,136,204,0.3);
+}
+
+.telegram-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,136,204,0.4);
+    background: #0099dd;
+}
+
+.telegram-btn i {
+    font-size: 1.3rem;
+}
+
+/* Proxy Cards */
+.proxy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.proxy-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.proxy-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.recommended-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: linear-gradient(45deg, #ffd700, #ffa500);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 2px 10px rgba(255,215,0,0.3);
+}
+
+.proxy-header {
+    margin-bottom: 1.5rem;
+}
+
+.proxy-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.proxy-description {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.proxy-details {
+    background: rgba(0,0,0,0.03);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.detail-row:last-child {
+    border-bottom: none;
+}
+
+.detail-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.detail-value {
+    font-family: monospace;
+    font-size: 0.9rem;
+    color: #333;
+    background: rgba(0,0,0,0.05);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.detail-value:hover {
+    background: rgba(0,0,0,0.1);
+    max-width: none;
+    white-space: normal;
+    word-break: break-all;
+    z-index: 10;
+}
+
+.detail-value::after {
+    content: '📋';
+    margin-left: 5px;
+    font-size: 0.8rem;
+    opacity: 0.5;
+}
+
+.detail-value:hover::after {
+    opacity: 1;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ccc;
+}
+
+.status-indicator.online .status-dot {
+    background: #4CAF50;
+    box-shadow: 0 0 10px rgba(76,175,80,0.5);
+}
+
+.status-indicator.offline .status-dot {
+    background: #f44336;
+    box-shadow: 0 0 10px rgba(244,67,54,0.5);
+}
+
+.status-indicator.online {
+    color: #4CAF50;
+    font-weight: 600;
+}
+
+.status-indicator.offline {
+    color: #f44336;
+    font-weight: 600;
+}
+
+.qr-section {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.qr-section h4 {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.qr-code {
+    border-radius: 12px;
+    padding: 0.5rem;
+    background: #fff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.action-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-connect {
+    background: #0088cc;
+    color: #fff;
+}
+
+.btn-connect:hover {
+    background: #0099dd;
+}
+
+.btn-copy {
+    background: #f5f5f5;
+    color: #333;
+}
+
+.btn-copy:hover {
+    background: #e0e0e0;
+}
+
+/* Toast Notification */
+.toast {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: #333;
+    color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.toast.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.toast.error {
+    background: #f44336;
+}
+
+.toast i {
+    font-size: 1.2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero__title {
+        font-size: 2.5rem;
+    }
+    
+    .hero__stats {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .stat-item {
+        width: 100%;
+    }
+    
+    .proxy-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero__title {
+        font-size: 2rem;
+    }
+    
+    .action-buttons {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+<style>
+.other-services {
+    background: #181818;
+    padding: 60px 0 40px 0;
+    color: #fff;
+}
+.other-services .section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 2.5rem;
+    color: #fff;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.service-card {
+    background: #232323;
+    border-radius: 18px;
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+.service-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+}
+.service-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+.service-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.7rem;
+    text-align: center;
+}
+.service-desc {
+    font-size: 1rem;
+    color: #e0e0e0;
+    text-align: center;
+    margin-bottom: 1.2rem;
+    min-height: 60px;
+}
+.service-btn {
+    display: inline-block;
+    background: linear-gradient(90deg,#00c6ff,#0072ff);
+    color: #fff;
+    padding: 0.7rem 1.5rem;
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    margin-top: auto;
+}
+.service-btn:hover {
+    background: linear-gradient(90deg,#0072ff,#00c6ff);
+    box-shadow: 0 4px 16px rgba(0,114,255,0.18);
+}
+@media (max-width: 700px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    .other-services {
+        padding: 40px 0 20px 0;
+    }
+}
+</style>
+    
+</head>
+<body>
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <div class="hero__content">
+            <h1 class="hero__title">MTProxy Telegram Miễn Phí #HASoftware</h1>
+            <p class="hero__description">
+                Truy cập Telegram an toàn và tốc độ cao qua các máy chủ MTProxy miễn phí. 
+                Được tối ưu hóa cho tốc độ và độ ổn định, giúp bạn luôn kết nối với Telegram một cách đáng tin cậy.
+            </p>
+            <div class="hero__stats">
+                <div class="stat-item">
+                    <i class="fas fa-server"></i>
+                    <span id="totalServers">2</span>
+                    <span class="stat-label">Máy chủ</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-signal"></i>
+                    <span id="totalProxies">2</span>
+                    <span class="stat-label">Proxy Online</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span id="totalBandwidth"></span>
+                    <span class="stat-label">Băng thông</span>
+                </div>
+            </div>
+            <a href="https://t.me/hasoftware" class="telegram-btn" target="_blank">
+                <i class="fab fa-telegram-plane"></i>
+                Tham gia nhóm Telegram
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- Proxies Section -->
+<section class="proxies">
+    <div class="container">
+        <h2 class="section-title">Danh sách Proxy</h2>
+        <div class="proxy-grid">
+            
+                
+                    <div class="proxy-card" style="animation-delay: 0s">
+                        
+                        
+                        <div class="proxy-header">
+                            <h3 class="proxy-title">MTProxy For Telegram [VIP1] - Không giới hạn băng thông</h3>
+                            <p class="proxy-description">Proxy Tốc độ 1Gbps | Ping 20ms | Singapore</p>
+                        </div>
+                        
+                        <div class="proxy-details">
+                            <div class="detail-row">
+                                <span class="detail-label">
+                                    <i class="fas fa-server"></i>
+                                    Server
+                                </span>
+                                <span class="detail-value">139.99.39.53</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">
+                                    <i class="fas fa-plug"></i>
+                                    Port
+                                </span>
+                                <span class="detail-value">4433</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">
+                                    <i class="fas fa-key"></i>
+                                    Secret
+                                </span>
+                                <span class="detail-value">ee785d97068fad6f6c95c905326e45c3f17777772e636c6f7564666c6172652e636f6d</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">
+                                    <i class="fas fa-signal"></i>
+                                    Status
+                                </span>
+                                <div class="status-indicator online">
+                                    <div class="status-dot"></div>
+                                    online
+                                </div>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">
+                                    <i class="fas fa-tachometer-alt"></i>
+                                    Băng thông
+                                </span>
+                                <span class="detail-value">Không giới hạn</span>
+                            </div>
+                        </div>
+                        
+                        <div class="qr-section">
+                            <h4>
+                                <i class="fas fa-qrcode"></i>
+                                Quét mã QR
+                            </h4>
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=tg%3A%2F%2Fproxy%3Fserver%3D139.99.39.53%26port%3D4433%26secret%3Dee785d97068fad6f6c95c905326e45c3f17777772e636c6f7564666c6172652e636f6d" 
+                                 alt="QR Code" 
+                                 class="qr-code" 
+                                 width="160" 
+                                 height="160">
+                        </div>
+                        
+                        <div class="action-buttons">
+                            <a href="tg://proxy?server=139.99.39.53&port=4433&secret=ee785d97068fad6f6c95c905326e45c3f17777772e636c6f7564666c6172652e636f6d" 
+                               class="btn btn-connect">
+                                <i class="fas fa-link"></i>
+                                Kết nối
+                            </a>
+                            <button class="btn btn-copy" 
+                                    onclick="copyToClipboard('tg://proxy?server=139.99.39.53&port=4433&secret=ee785d97068fad6f6c95c905326e45c3f17777772e636c6f7564666c6172652e636f6d')">
+                                <i class="fas fa-copy"></i>
+                                Sao chép
+                            </button>
+                        </div>
+                    </div>
+                
+                    <div class="proxy-card" style="animation-delay: 0.1s">
+                        
+                        
+                        <div class="proxy-header">
+                            <h3 class="proxy-title">MTProxy For Telegram [VIP2] - Không giới hạn Băng Thông</h3>
+                            <p class="proxy-description">Proxy Tốc độ 3Gbps | Ping 10ms | Singapore</p>
+                        </div>
+                        
+                        <div class="proxy-details">
+                            <div class="detail-row">
+                                <span class="detail-label">
+                                    <i class="fas fa-server"></i>
+                                    Server
+                                </span>
+                                <span class="detail-value">51.79.200.62</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">
+                                    <i class="fas fa-plug"></i>
+                                    Port
+                                </span>
+                                <span class="detail-value">4433</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">
+                                    <i class="fas fa-key"></i>
+                                    Secret
+                                </span>
+                                <span class="detail-value">ee00250c35309e02b3452032bce4a0af5e7777772e636c6f7564666c6172652e636f6d</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">
+                                    <i class="fas fa-signal"></i>
+                                    Status
+                                </span>
+                                <div class="status-indicator online">
+                                    <div class="status-dot"></div>
+                                    online
+                                </div>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">
+                                    <i class="fas fa-tachometer-alt"></i>
+                                    Băng thông
+                                </span>
+                                <span class="detail-value">Không giới hạn</span>
+                            </div>
+                        </div>
+                        
+                        <div class="qr-section">
+                            <h4>
+                                <i class="fas fa-qrcode"></i>
+                                Quét mã QR
+                            </h4>
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=tg%3A%2F%2Fproxy%3Fserver%3D51.79.200.62%26port%3D4433%26secret%3Dee00250c35309e02b3452032bce4a0af5e7777772e636c6f7564666c6172652e636f6d" 
+                                 alt="QR Code" 
+                                 class="qr-code" 
+                                 width="160" 
+                                 height="160">
+                        </div>
+                        
+                        <div class="action-buttons">
+                            <a href="tg://proxy?server=51.79.200.62&port=4433&secret=ee00250c35309e02b3452032bce4a0af5e7777772e636c6f7564666c6172652e636f6d" 
+                               class="btn btn-connect">
+                                <i class="fas fa-link"></i>
+                                Kết nối
+                            </a>
+                            <button class="btn btn-copy" 
+                                    onclick="copyToClipboard('tg://proxy?server=51.79.200.62&port=4433&secret=ee00250c35309e02b3452032bce4a0af5e7777772e636c6f7564666c6172652e636f6d')">
+                                <i class="fas fa-copy"></i>
+                                Sao chép
+                            </button>
+                        </div>
+                    </div>
+                
+            
+        </div>
+    </div>
+</section>
+
+<!-- Instructions Section -->
+<section class="instructions">
+    <div class="instructions__container container">
+        <h2 class="section__title">
+            <i class="fas fa-book-open"></i>
+            Hướng dẫn sử dụng
+        </h2>
+
+        <div class="instructions__warning">
+            <h3 class="instructions__warning-title">
+                <i class="fas fa-exclamation-triangle"></i>
+                Quan trọng - Về băng thông
+            </h3>
+            <p class="instructions__warning-text">
+                Máy chủ này có giới hạn băng thông <strong>100TB/tháng</strong>.
+                Để đảm bảo dịch vụ ổn định cho tất cả người dùng, vui lòng <strong>không xem video, stream nội dung</strong>
+                hoặc tải xuống các tệp lớn qua proxy này. Chỉ sử dụng cho chat Telegram thông thường.
+            </p>
+        </div>
+
+        <div class="instructions__guides">
+            <div class="instructions__guide">
+                <h3 class="instructions__guide-title">
+                    <i class="fas fa-mobile-alt"></i>
+                    Telegram Mobile
+                </h3>
+                <ol class="instructions__steps">
+                    <li>Nhấn nút <strong>"Kết nối"</strong> hoặc quét mã QR</li>
+                    <li>Telegram sẽ tự động mở và hỏi về kết nối proxy</li>
+                    <li>Chọn <strong>"SỬ DỤNG PROXY"</strong> để kết nối</li>
+                    <li>Thành công! Telegram sẽ hiển thị trạng thái kết nối proxy</li>
+                </ol>
+            </div>
+
+            <div class="instructions__guide">
+                <h3 class="instructions__guide-title">
+                    <i class="fas fa-desktop"></i>
+                    Telegram Desktop
+                </h3>
+                <ol class="instructions__steps">
+                    <li>Mở Telegram Desktop</li>
+                    <li>Vào Cài đặt → Nâng cao → Loại kết nối</li>
+                    <li>Chọn <strong>"Sử dụng proxy tùy chỉnh"</strong></li>
+                    <li>Chọn <strong>"MTProto Proxy"</strong></li>
+                    <li>Nhập IP Máy chủ, Port, Secret từ thông tin trên</li>
+                    <li>Nhấn <strong>"Lưu"</strong> để áp dụng cài đặt</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="instructions__tips">
+            <h3 class="instructions__tips-title">
+                <i class="fas fa-lightbulb"></i>
+                Mẹo cho hiệu suất tốt nhất
+            </h3>
+            <ul class="instructions__tips-list">
+                <li><strong>Thử theo thứ tự:</strong> Port 80 → Port 53 → Port 8080 → Port 3389</li>
+                <li><strong>Port 53 (DNS):</strong> Ít bị chặn nhất vì hầu hết ứng dụng cần DNS</li>
+                <li><strong>Nhiều máy chủ:</strong> Nếu một máy chủ chậm, hãy thử máy chủ khác</li>
+                <li><strong>Đánh dấu trang này:</strong> Để dễ dàng truy cập khi cần</li>
+                <li><strong>Tham gia nhóm chúng tôi:</strong> <a href="https://t.me/hasoftware" target="_blank">@hasoftware</a> để cập nhật và thông báo</li>
+                <li><strong>Sử dụng có trách nhiệm:</strong> Chỉ chat text để tiết kiệm băng thông cho mọi người</li>
+                <li><strong>Vấn đề kết nối?</strong> Thử các port hoặc máy chủ khác - một số ISP chặn các port cụ thể</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Toast Notification -->
+<div id="toast" class="toast">
+    <i class="fas fa-check-circle"></i>
+    Đã sao chép link vào clipboard!
+</div>
+
+<!-- Custom Scripts -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container" style="text-align: center;">
+            <p>&copy; 2025 Share MTProxy. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <!-- <script src="/js/main.js"></script> -->
+    
+    <!-- Custom scripts for specific pages -->
+    
+        
+
+
+
+    
+    
+        
+
+<!-- Other Services Section -->
+<!-- <section class="other-services">
+    <div class="container">
+        <h2 class="section-title">Dịch vụ khác mà chúng tôi cung cấp</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon" style="background:linear-gradient(45deg,#ff9800,#ffb300);"><i class="fas fa-user-shield"></i></div>
+                <h3 class="service-title">Muafb88.com</h3>
+                <p class="service-desc">Cung cấp tài khoản mạng xã hội và tài khoản dành cho các nhà quảng cáo.</p>
+                <a href="https://muafb88.com" target="_blank" class="service-btn">Truy cập ngay</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon" style="background:linear-gradient(45deg,#00bcd4,#2196f3);"><i class="fas fa-certificate"></i></div>
+                <h3 class="service-title">UCerts.io</h3>
+                <p class="service-desc">Cung cấp chứng chỉ Apple P12 & Mobileprovision giúp nhân bản và cài ứng dụng mod game Hack trên iOS an toàn, không cần Jailbreak chỉ từ 99k/năm.</p>
+                <a href="https://ucerts.io" target="_blank" class="service-btn">Truy cập ngay</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon" style="background:linear-gradient(45deg,#43e97b,#38f9d7);"><i class="fas fa-th-large"></i></div>
+                <h3 class="service-title">UApps.vn & UApps.io</h3>
+                <p class="service-desc">Kho ứng dụng bên thứ 3 giống Appstore, có thể nhân bản hoặc cài ứng dụng VIP, Premium, Game Hack chỉ với 1 cú nhấp.</p>
+                <a href="https://uapps.vn" target="_blank" class="service-btn">Truy cập ngay</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon" style="background:linear-gradient(45deg,#f857a6,#ff5858);"><i class="fas fa-bolt"></i></div>
+                <h3 class="service-title">Muafollowgiare.com</h3>
+                <p class="service-desc">Cung cấp dịch vụ Hack Like, Follow, tăng lượt xem, bình luận... cho tất cả mạng xã hội hiện có.</p>
+                <a href="https://muafollowgiare.com" target="_blank" class="service-btn">Truy cập ngay</a>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+ 
+    
+</body>
+</html> 
